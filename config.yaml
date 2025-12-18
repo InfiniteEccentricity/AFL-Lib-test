@@ -7,8 +7,8 @@ model: cnn
 
 # federated config
 total_num: 100
-sr: 0.1
-rnd: 10
+sr: 0.8
+rnd: 1000
 test_gap: 1
 
 # local training config
