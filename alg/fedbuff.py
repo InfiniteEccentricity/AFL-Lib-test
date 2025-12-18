@@ -40,7 +40,7 @@ class Server(AsyncBaseServer):
         # weight = (1 + s)^-alpha
         weight = (1 + s) ** (-self.args.alpha)
         self.buffer.append(self.cur_client.dW)
-	self.weight_buffer.append(weight)
+        self.weight_buffer.append(weight)
         if len(self.buffer) == self.args.k:
             t_g = self.model2tensor()
             
