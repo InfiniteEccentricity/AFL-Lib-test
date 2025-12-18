@@ -48,7 +48,7 @@ class FedSim:
                             "round": rnd,
                             "test_accuracy": results['acc'],
                             "test_std": results['acc_std'],
-                            "wall_clock_time": server.wall_clock_time
+                            "wall_clock_time": self.server.wall_clock_time
                         })
                         print(f"Round {rnd}: Accuracy {results['acc']:.2f}%")
                 # ===================== test =====================
