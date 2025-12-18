@@ -1,7 +1,7 @@
 # basic config
 alg: fedbuff
 suffix: default
-device: 1
+device: 0
 dataset: cifar10
 model: cnn
 
