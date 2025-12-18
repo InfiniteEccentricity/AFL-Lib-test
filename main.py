@@ -42,7 +42,7 @@ class FedSim:
                 self.server.round = rnd
                 self.server.run()
                 if rnd % args.test_gap == 0:
-                        results = server.test_all()
+                        results = self.server.test_all()
                         # Publish to W&B
                         wandb.log({
                             "round": rnd,
