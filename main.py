@@ -2,6 +2,7 @@ import importlib
 import sys
 import numpy as np
 import os
+import wandb
 
 from alg.asyncbase import AsyncBaseServer
 from utils.options import args_parser
@@ -40,7 +41,16 @@ class FedSim:
                 # ===================== train =====================
                 self.server.round = rnd
                 self.server.run()
-
+                if rnd % args.test_gap == 0:
+                        results = server.test_all()
+                        # Publish to W&B
+                        wandb.log({
+                            "round": rnd,
+                            "test_accuracy": results['acc'],
+                            "test_std": results['acc_std'],
+                            "wall_clock_time": server.wall_clock_time
+                        })
+                        print(f"Round {rnd}: Accuracy {results['acc']:.2f}%")
                 # ===================== test =====================
                 if (self.server.total_round - rnd <= 10) or (rnd % TEST_GAP == (TEST_GAP-1)):
                     ret_dict = self.server.test_all()
@@ -49,7 +59,7 @@ class FedSim:
 
                     self.output.write(f'[Round {rnd}] Acc: {acc:.2f} | Time: {self.server.wall_clock_time:.2f}s\n')
                     self.output.flush()
-
+            wandb.finish()
         except KeyboardInterrupt:
             ...
         finally:

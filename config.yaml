@@ -6,14 +6,14 @@ dataset: cifar10
 model: cnn
 
 # federated config
-total_num: 100
+total_num: 200
 sr: 0.1
 rnd: 10
 test_gap: 1
 
 # local training config
 bs: 64
-epoch: 5
+epoch: 10
 lr: 0.01
 gamma: 0.99
 
@@ -21,6 +21,6 @@ decay: 0.3
 delay: 5
 delay_rate: 0.3
 
-k: 10
+k: 20
 etag: 5.0
-alpha: 0.5
+alpha: 0.3
