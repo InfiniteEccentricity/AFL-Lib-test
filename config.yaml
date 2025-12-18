@@ -6,7 +6,7 @@ dataset: cifar10
 model: cnn
 
 # federated config
-total_num: 200
+total_num: 100
 sr: 0.1
 rnd: 10
 test_gap: 1
