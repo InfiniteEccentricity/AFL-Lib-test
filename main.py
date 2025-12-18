@@ -28,6 +28,12 @@ class FedSim:
         self.clients = [alg_module.Client(idx, args) for idx in tqdm(range(args.total_num))]
         self.server = alg_module.Server(0, args, self.clients)
 
+        wandb.init(
+            project="AFL-Lib-FedBuff", 
+            config=vars(args),
+            name=f"{args.alg}_{args.dataset}_{args.suffix}"
+        )
+
     def simulate(self):
         acc_list = []
         TEST_GAP = self.args.test_gap
