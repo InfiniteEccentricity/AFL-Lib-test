@@ -1,9 +1,9 @@
 # basic config
-alg: fedavg
+alg: fedbuff
 suffix: default
 device: 1
-dataset: mnist
-model: mlp
+dataset: cifar10
+model: cnn
 
 # federated config
 total_num: 100
@@ -20,3 +20,7 @@ gamma: 0.99
 decay: 0.3
 delay: 5
 delay_rate: 0.3
+
+k: 10
+etag: 5.0
+alpha: 0.5
