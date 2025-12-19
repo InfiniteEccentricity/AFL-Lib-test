@@ -50,7 +50,7 @@ class CNN_CIFAR(nn.Module):
         x = self.fc(x)
         return x
 def cnn_cifar10(args):
-    return CNN_CIFAR(class_num=args.class_num)
+    return CNN_CIFAR()
 
 def cnn_cifar100(args):
     return CNN_CIFAR(class_num=args.class_num)
