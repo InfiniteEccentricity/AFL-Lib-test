@@ -14,7 +14,7 @@ test_gap: 1
 # local training config
 bs: 64
 epoch: 1
-lr: 0.01
+lr: 0.001
 gamma: 0.99
 
 decay: 0.3
@@ -22,5 +22,5 @@ delay: 5
 delay_rate: 0.3
 
 k: 20
-etag: 1.0
+etag: 1.5
 alpha: 0.3
