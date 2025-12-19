@@ -47,6 +47,7 @@ class FedSim:
                 # ===================== train =====================
                 self.server.round = rnd
                 self.server.run()
+                current_loss = getattr(self.server.cur_client, 'metric', {}).get('loss', 0)
                 if rnd % args.test_gap == 0:
                         results = self.server.test_all()
                         # Publish to W&B
@@ -54,7 +55,7 @@ class FedSim:
                             "round": rnd,
                             "test_accuracy": results['acc'],
                             "test_std": results['acc_std'],
-                            "train_loss": avg_train_loss,
+                            "train_loss": current_loss,
                             "wall_clock_time": self.server.wall_clock_time
                         })
                         print(f"Round {rnd}: Accuracy {results['acc']:.2f}%")
