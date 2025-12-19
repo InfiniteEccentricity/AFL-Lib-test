@@ -7,13 +7,13 @@ model: cnn
 
 # federated config
 total_num: 100
-sr: 0.8
+sr: 0.2
 rnd: 1000
 test_gap: 1
 
 # local training config
 bs: 64
-epoch: 10
+epoch: 1
 lr: 0.01
 gamma: 0.99
 
@@ -22,5 +22,5 @@ delay: 5
 delay_rate: 0.3
 
 k: 20
-etag: 5.0
+etag: 1.0
 alpha: 0.3
